@@ -156,3 +156,66 @@
 ### 7. Database Optimizations
     - Indexing: Implement indexes for fast retrieval of frequently accessed data.
     - Caching: Use caching strategies to reduce database load and improve performance.
+
+## API Security 
+
+
+Ensuring the security of the backend is a top priority for the Airbnb Clone project. Since the platform handles sensitive data such as user information, property details, and payment records, implementing strong security measures is essential.  
+
+### Key Security Measures  
+
+1. **Authentication**  
+   - Use **JWT (JSON Web Tokens)** or **OAuth2** for secure login and session management.  
+   - Ensures only verified users can access protected API endpoints.  
+   - **Why it matters:** Protects user accounts and prevents unauthorized access to personal data.  
+
+2. **Authorization**  
+   - Role-based access control (RBAC) (e.g., host vs. guest).  
+   - API endpoints enforce permissions to ensure users only perform allowed actions.  
+   - **Why it matters:** Prevents misuse, such as guests editing properties or accessing other users’ bookings.  
+
+3. **Data Validation & Sanitization**  
+   - All input data will be validated and sanitized to prevent SQL injection, XSS, and other injection attacks.  
+   - **Why it matters:** Protects the system from malicious input that could compromise data integrity.  
+
+4. **Rate Limiting & Throttling**  
+   - Limit API requests per user to prevent abuse, brute-force login attempts, or DDoS attacks.  
+   - **Why it matters:** Ensures system availability and fair usage across all users.  
+
+5. **Secure Payments Handling**  
+   - Payments processed through trusted third-party providers (e.g., Stripe, PayPal).  
+   - Sensitive payment details will **never** be stored directly on our servers.  
+   - **Why it matters:** Protects financial data and reduces the risk of fraud.  
+
+6. **Encryption (HTTPS & Data Storage)**  
+   - All API communication encrypted over **HTTPS**.  
+   - Passwords hashed using algorithms like **bcrypt** before storage.  
+   - **Why it matters:** Prevents data leaks and ensures confidentiality during transmission and storage.  
+
+7. **Logging & Monitoring**  
+   - Suspicious activities (e.g., repeated failed logins, unusual booking/payment attempts) will be logged and monitored.  
+   - **Why it matters:** Helps detect and respond to security breaches early.  
+
+
+
+ ## CI/CD Pipeline  
+
+### What is CI/CD?  
+**CI/CD (Continuous Integration and Continuous Deployment/Delivery)** is a set of practices that automate the process of building, testing, and deploying applications.  
+
+- **Continuous Integration (CI):** Ensures that code changes from multiple contributors are automatically tested and merged into the main branch without breaking the application.  
+- **Continuous Deployment (CD):** Automatically deploys tested code to production or staging environments, reducing manual effort and errors.  
+
+### Why CI/CD is Important for This Project  
+- **Reliability:** Ensures all new code is tested before merging, reducing bugs.  
+- **Faster Development:** Automates build, test, and deploy processes, allowing quicker iterations.  
+- **Consistency:** Ensures deployments are the same across environments.  
+- **Scalability:** Makes it easier to handle frequent updates as the project grows.  
+
+### Tools Used  
+- **GitHub Actions** – For automating workflows such as testing, linting, and deployment.  
+- **Docker** – For containerization, ensuring consistent environments across development, testing, and production.  
+- **PostgreSQL & Redis Containers** – Used in the CI pipeline for database and caching services during tests.  
+- **CI/CD Integrations with Cloud Platforms** – (e.g., AWS, Heroku, or DigitalOcean) for automated deployments.  
+
+
