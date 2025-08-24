@@ -29,3 +29,104 @@
 * Database Administrator: Manages database design, indexing, and optimizations.
 * DevOps Engineer: Handles deployment, monitoring, and scaling of the backend services.
 * QA Engineer: Ensures the backend functionalities are thoroughly tested and meet quality standards.
+
+## Database Design
+### 1. Users
+
+ - ### Important Fields
+    - id (unique identifier)
+
+    - name (full name of the user)
+
+    - email (unique, for login/communication)
+
+    - password_hash (for authentication)
+
+    - role (e.g., host or guest)
+
+- ### Relationships
+    - A user can own multiple properties (if they are a host).
+
+    - A user can make multiple bookings.
+
+    - A user can write multiple reviews.
+
+    - A user can make multiple payments.
+ ### 2. Properties
+- ### Important Fields
+    - id (unique identifier)
+
+    - title (name of the property)
+
+    - description (details of the property)
+
+    - location (address or coordinates)
+
+    - price_per_night (base price for booking)
+
+- ### Relationships
+    - A property belongs to one user (the host).
+
+    - A property can have multiple bookings.
+
+    - A property can have multiple reviews.
+
+### 3. Bookings
+- ### Important Fields
+    - id (unique identifier)
+
+    - user_id (the guest making the booking)
+
+    - property_id (the property being booked)
+
+    - start_date
+
+    - end_date
+
+    - status (e.g., pending, confirmed, canceled)
+
+- ### Relationships
+    - A booking belongs to one user (the guest).
+
+    - A booking belongs to one property.
+
+    - A booking can be linked to one payment.
+### 4. Payments
+- ### Important Fields
+
+    - id (unique identifier)
+
+    - booking_id (the booking being paid for)
+
+    - amount
+
+    - payment_method (e.g., card, PayPal)
+
+    - status (e.g., successful, failed, pending)
+
+- ### Relationships
+
+    - A payment belongs to one booking.
+
+    - A booking can have one payment record.
+
+### 5. Reviews
+- ### Important Fields
+
+    - id (unique identifier)
+
+    - user_id (the reviewer/guest)
+
+    - property_id (the property being reviewed)
+
+    - rating (e.g., 1–5 stars)
+
+    - comment (text review)
+
+- ### Relationships
+
+    - A review belongs to one user.
+
+    - A review belongs to one property.
+
+    - A property can have many reviews.
